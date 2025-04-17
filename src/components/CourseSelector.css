@@ -1,0 +1,281 @@
+
+
+.course-selector-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.selection-step,
+.roadmap-display {
+  background-color: #7748bd;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 30px 25px;
+  margin: 20px auto;
+  max-width: 2000px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: fadeInSlide 0.5s ease;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+
+/* deep seek generated css */
+
+
+.selection-step,
+.roadmap-display {
+  background: linear-gradient(to bottom, #fafafa, #ffffff); /* subtle gradient */
+  border: none;
+  border-radius: 12px;
+  padding: 30px 25px;
+  margin: 20px auto;
+  max-width: 2000px;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 10px 15px rgba(0, 0, 0, 0.1),
+    0 20px 25px rgba(0, 0, 0, 0.05);
+  animation: fadeInSlide 0.5s ease;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+}
+
+/* For the main container - make it slightly different */
+.course-selector-container {
+  background-color: #f5f5f5; /* slightly darker than pure white */
+  /* ... keep your other existing properties ... */
+}
+
+/* Optional: Add a very subtle border that only appears on certain backgrounds */
+.selection-step::after,
+.roadmap-display::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  pointer-events: none;
+}
+
+/* Enhanced hover effect with more pronounced separation */
+.selection-step:hover,
+.roadmap-display:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.1),
+    0 12px 24px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom, #f5f5f5, #ffffff); /* slightly darker on hover */
+}
+
+
+
+
+
+
+/* deep seek genetaeted css */
+
+.options-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.option-button {
+  flex: 1 1 150px;
+  min-width: 150px;
+  max-width: 200px;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #6071c4;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.back-button {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #7b3131;
+}
+
+.view-roadmap-button {
+  display: block;
+  margin: 20px auto;
+}
+
+.content-wrapper {
+  background-color: #924a4f;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .option-button {
+    flex: 1 1 calc(50% - 1rem);
+    min-width: unset;
+    max-width: unset;
+  }
+}
+
+
+/* roadmap in middle */
+.selection-step {
+  text-align: center;
+}
+
+.option-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+
+  /* border: none; */
+  /* border-radius: 8px;*/
+  
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.option-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* back to course button css */
+
+
+.back-button {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #6071c4; /* Matching your button color scheme */
+  color: white; /* White text for better contrast */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  width: auto; /* Ensures button fits content */
+  display: inline-block; /* Makes width adjust to content */
+}
+
+.back-button:hover {
+  background-color: #4a5aa3; /* Slightly darker on hover */
+  transform: translateY(-1px); /* Small lift effect */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+
+/* heading and paragraph selector */
+
+
+
+
+ .page-intro {
+  text-align: center;
+  /* margin-bottom: 2rem; */
+  /* padding: 1rem; */
+}
+
+.intro-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  font-family: 'Poppins', sans-serif;
+}
+
+.intro-description {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  /* margin: 0 auto; */
+  font-family: 'Open Sans', sans-serif;
+} 
+
+
+.page-intro {
+  width: 100%;
+  text-align: center;
+  /* margin-bottom: 2rem; */
+  /* padding: 1rem 2rem; */
+  box-sizing: border-box;
+}
+
+.intro-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  font-family: 'Poppins', sans-serif;
+  /* margin-bottom: 0.5rem; */
+}
+
+.intro-description {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+}
+
+
+.course-selector-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}

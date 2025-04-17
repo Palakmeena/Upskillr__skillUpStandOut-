@@ -1,13 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .home-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 50px 10%;
     gap: 50px; 
 }
 
 .text-section {
-    max-width: 500px;
+    max-width: 45%;
+    text-align: left;
     font-family: Arial, Helvetica, sans-serif;
 
 }
@@ -17,6 +23,7 @@
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     color: #000;
+    margin: 0%
 }
 
 .text-section span {
@@ -40,6 +47,7 @@
     font-size: 1rem !important;
     text-transform: none !important;
     font-family: Arial, Helvetica, sans-serif;
+    width: 300px;
 
 }
 
@@ -55,8 +63,178 @@
         flex-direction: column;
         text-align: center;
     }
+
+    .mobile-search-bar {
+        display: block;
+      }
     
     .image-section img {
         max-width: 70%;
     }
+
+    .explore-btn{
+        width: 200px;
+    }
+
+    .text-section h1{
+       width: 200px;
+     
+     
+     margin-right: 150px;
+    }
+
+    .text-section p{
+        width: 200px;
+        text-align: center;
+    }
 }
+/* search bar refine css */
+
+/* Mobile Search Bar */
+.mobile-search-container {
+    display: none; /* Hide on desktop */
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.mobile-search-bar {
+    width: 90%; /* Increase width */
+    max-width: 400px; /* Limit max width */
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: 0.3s;
+    box-shadow: none;
+}
+
+/* Add hover & focus effect */
+.mobile-search-bar:focus {
+    border-color: #479dc8;
+    box-shadow: 0 0 5px rgba(71, 157, 200, 0.5);
+}
+
+/* Show Search Bar in Mobile Mode */
+@media (max-width: 768px) {
+    .mobile-search-container {
+        display: flex; /* Show in mobile */
+    }
+}
+
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 5%;
+    }
+
+    .text-section {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .text-section h1 {
+        font-size: 2rem;
+        width: auto;
+        margin-right: 0;
+        margin-top: 34px;
+    }
+
+    .text-section p {
+        font-size: 1rem;
+        width: auto;
+    }
+
+    .explore-btn {
+        width: 200px;
+    }
+
+    .mobile-search-container {
+        display: flex; /* Show only in mobile mode */
+        margin-bottom: 34px;
+    }
+
+    .search-icon {
+        font-size: 18px;
+        color: #666;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    .mobile-search-bar {
+        width: 100%;
+        max-width: 350px; /* Adjust width as needed */
+        padding: 10px;
+        border: 2px solid #ccc; /* Light border */
+        border-radius: 50px; /* Makes the corners rounded */
+        font-size: 16px;
+        outline: none;
+    }
+
+
+    .text-section h1 {
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.text-section p {
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+    
+}
+
+
+
+/* home page animation */
+
+
+@keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeSlideRight {
+    0% {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .text-section {
+    animation: fadeSlideUp 1s ease forwards;
+    opacity: 0; /* Hidden before animation */
+  }
+  
+  .image-section {
+    animation: fadeSlideRight 0.7s ease 0.1s forwards;
+    opacity: 0; /* Hidden before animation */
+  }
+  
+  .explore-btn:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Optional: subtle focus animation for mobile search bar */
+  .mobile-search-bar {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  

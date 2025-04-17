@@ -1,0 +1,176 @@
+.community-container {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    text-align: center;
+  }
+  
+  .community-title {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+  }
+  
+  .community-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  .community-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+  }
+  
+  .community-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .community-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .community-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+  
+  .community-card h3 {
+    font-size: 1.3rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+  }
+  
+  .community-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+    min-height: 80px;
+  }
+  
+  .join-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .join-btn:hover {
+    background-color: #0056b3;
+  }
+  
+
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .community-container {
+    padding: 2rem;
+    background-color: #f8f9fa; /* Kept same as you asked */
+    text-align: center;
+    animation: fadeUp 0.8s ease-out;
+  }
+  
+  .community-title {
+    font-size: 2.5rem;
+    color: #1f1f1f;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.8s ease-out;
+  }
+  
+  .community-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease-out;
+  }
+  
+  .community-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+  }
+  
+  .community-card {
+    background: #ffffffef; /* Slightly off-white for separation */
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeUp 1s ease-out;
+  }
+  
+  .community-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .community-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .community-card:hover .community-logo {
+    transform: scale(1.05);
+  }
+  
+  .community-card h3 {
+    font-size: 1.4rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+  }
+  
+  .community-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+    min-height: 80px;
+  }
+  
+  .join-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .join-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  

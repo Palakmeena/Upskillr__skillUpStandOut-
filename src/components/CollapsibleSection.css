@@ -1,0 +1,40 @@
+.collapsible-section {
+    margin: 1rem 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f7fafc;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.section-header:hover {
+    background-color: #edf2f7;
+}
+
+.section-title {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.25rem;
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.arrow.open {
+    transform: rotate(180deg);
+}
+
+.section-content {
+    padding: 1rem;
+    background-color: white;
+}
