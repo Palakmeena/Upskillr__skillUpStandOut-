@@ -6,7 +6,7 @@ import { faSearch, faBars, faTimes, faChevronDown } from "@fortawesome/free-soli
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 
-import logo from "../images/logo.png";
+import logo from "../images/logoo.png";
 import "../components/Header.css";
 
 export default function Header() {

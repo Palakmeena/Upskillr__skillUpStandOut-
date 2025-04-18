@@ -8,8 +8,8 @@ const cardsData = {
         resources: [
           {
             title: "Java Interview Questions ",
-            viewLink: "/resources/Java Interview Questions .pdf",
-            downloadLink: "/resources/Java Interview Questions .pdf",
+            viewLink: "https://drive.google.com/file/d/1GJeNNMSEL7JtFCR6gxyE-uNe41brw84a/view?usp=drive_link",
+            downloadLink: "https://drive.google.com/file/d/1GJeNNMSEL7JtFCR6gxyE-uNe41brw84a/view?usp=drive_link",
           },
 
           {
@@ -39,20 +39,20 @@ const cardsData = {
 
           {
             title: "Java complete notes ",
-            viewLink: "/resources/java complete notes.pdf",
-            downloadLink: "/resources/java complete notes.pdf",
+            viewLink: "https://drive.google.com/file/d/19XnJzKaYc5GogWqhH7eae16wvLkuNBma/view?usp=drive_link",
+            downloadLink: "https://drive.google.com/file/d/19XnJzKaYc5GogWqhH7eae16wvLkuNBma/view?usp=drive_link",
           },
 
           {
             title: "StringBuffer & StringBuilder",
-            viewLink: "/resources/Corejava!!.pdf",
-            downloadLink: "/resources/Corejava!!.pdf",
+            viewLink: "https://drive.google.com/file/d/1iiqTPyYlRvrhmdDDKT4jddu1vfTHy4bT/view?usp=drive_link",
+            downloadLink: "https://drive.google.com/file/d/1iiqTPyYlRvrhmdDDKT4jddu1vfTHy4bT/view?usp=drive_link",
           },
 
           {
             title: "String Comparison and Important Methods",
-            viewLink: "/resources/Corejava!!-1.pdf",
-            downloadLink: "/resources/Corejava!!-1.pdf",
+            viewLink: "https://drive.google.com/file/d/1P3zorAdzT7ul8wsjtLPBfRGD1K3Ss4Ou/view?usp=drive_link",
+            downloadLink: "https://drive.google.com/file/d/1P3zorAdzT7ul8wsjtLPBfRGD1K3Ss4Ou/view?usp=drive_link",
           },
 
           {
@@ -322,6 +322,12 @@ const cardsData = {
             viewLink: "/resources/Best Github Repos.pdf",
             downloadLink: "/resources/Best Github Repos.pdf",
           },
+
+          {
+            title: "Github Interview Questions",
+            viewLink: "https://drive.google.com/file/d/1YCMImZoazqIXzsP2j94HXcyL5IbPBxHu/view?usp=drive_link",
+            downloadLink: "https://drive.google.com/file/d/1YCMImZoazqIXzsP2j94HXcyL5IbPBxHu/view?usp=drive_link",
+          },
         ],
       },
 
@@ -477,7 +483,7 @@ const cardsData = {
         resources: [
           {
             title: "Resume Guide",
-            viewLink: "/resources/Resume Guide!!.pdf",
+            viewLink: "https://drive.google.com/file/d/1xGO0ytwQ-TQd7Yolv1jFmpGyI8qcbaz0/view?usp=drive_link",
             downloadLink: "/resources/Resume Guide!!.pdf",
           },
         ],
