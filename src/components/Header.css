@@ -88,16 +88,14 @@ body {
   .burger-menu {
     display: block;
     position: absolute;
-    right:-200px;
-    
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1002;
-    color: #000; /* Black icon color */
+    color: #000;
     background: transparent;
     border: none;
     font-size: 24px;
-    margin-left: 300px;
   }
 
   .nav-links {
