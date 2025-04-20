@@ -140,12 +140,19 @@ body {
   .search-container {
     display: none;
   }
+
+  .logo {
+    margin-top: 25px;
+  }
 }
 
 @media (min-width: 769px) {
   .search-container {
     display: flex !important; /* Ensure visibility on desktop */
   }
+
+
+  
 }
 
 
@@ -171,6 +178,7 @@ body {
 
 .logo {
   width: 150px;
+
 }
 
 .nav-links {
