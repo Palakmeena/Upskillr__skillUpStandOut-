@@ -30,13 +30,13 @@ const communities = [
     name: 'Microsoft Learn Student Ambassadors',
     description: 'Join a global group of student leaders focused on technology and community impact through Microsoft.',
     link: 'https://studentambassadors.microsoft.com/',
-    image: 'https://learn.microsoft.com/en-us/media/learn/student-ambassadors/student-ambassadors-hero.png'
+    image: '/src/images/microsoftambassadors.jpeg'
   },
   {
     name: 'Hack Club',
     description: 'A worldwide network of high school coding clubs where students learn to code through hands-on projects.',
     link: 'https://hackclub.com/',
-    image: 'https://assets-global.website-files.com/5d9bc5c00eaedba00e1c6d9a/5f1f3e364ab2f853c8d7b80a_Hack%20Club%20Flag%20Logo.png'
+    image: '/src/images/hackclub.png'
   },
 
   {
@@ -85,13 +85,13 @@ const communities = [
     name: 'Open Source Design',
     description: 'A community for designers who are passionate about open-source projects, offering resources and networking opportunities.',
     link: 'https://opensourcedesign.net/',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Open_Source_Design_logo.png'
+    image: '/src/images/opensource.png'
   },
   {
     name: 'Serverless Community',
     description: 'A community for developers building serverless applications, with events, meetups, and discussions about serverless technologies.',
     link: 'https://www.serverless.com/community/',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Serverless_Logo.png'
+    image: '/src/images/serverlesscommunity.jpeg'
   },
   {
     name: 'Vue.js Community',
@@ -115,7 +115,7 @@ const communities = [
     name: 'Designers Hangout',
     description: 'A community for designers to connect, share ideas, and learn from each other in a collaborative environment.',
     link: 'https://designershangout.co/',
-    image: '/src/designhangout.png'
+    image: '/src/images/designhangout.png'
   },
   {
     name: 'ClojureScript Community',

@@ -13,9 +13,9 @@ const cardsData = {
           },
 
           {
-            title: "Java top 50 difference between interview questions ",
-            viewLink: "/resources/Java top 50 difference between interview questions -1.pdf",
-            downloadLink: "/resources/Java top 50 difference between interview questions -1.pdf",
+            title: "Java Complete Notes ",
+            viewLink: "/resources/JavaCompleteNotes.pdf",
+            downloadLink: "/resources/JavaCompleteNotes.pdf",
           },
 
 
@@ -33,8 +33,8 @@ const cardsData = {
 
           {
             title: "JAVA Software Developer Topics ",
-            viewLink: "/resources/JAVA Software Developer Topics .pdf",
-            downloadLink: "/resources/JAVA Software Developer Topics .pdf",
+            viewLink: "/resources/JAVASoftwareDeveloperTopics.pdf",
+            downloadLink: "/resources/JAVASoftwareDeveloperTopics.pdf",
           },
 
           {
@@ -63,8 +63,8 @@ const cardsData = {
 
           {
             title: "OOPS CONCEPT IN JAVA ",
-            viewLink: "/resources/OOPS CONCEPT IN JAVA.pdf",
-            downloadLink: "/resources/OOPS CONCEPT IN JAVA.pdf",
+            viewLink: "/resources/OOPS.pdf",
+            downloadLink: "/resources/OOPS.pdf",
           },
         ],
       },

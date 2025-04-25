@@ -1,270 +1,399 @@
-/* .roadmap-container {
+/* Base Styles */
+.roadmap-container {
   display: flex;
-  justify-content: center;
-  padding: 40px;
-  background-color: #f5f5f5;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
 }
 
 .steps-wrapper {
   display: flex;
-  gap: 40px;
-  position: relative;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
 }
 
 .step-block {
   position: relative;
   text-align: center;
+  z-index: 1;
 }
 
 .step-label {
-  background-color: #007b7f;
+  background: linear-gradient(135deg, #6071c4 0%, #3a4ba5 100%);
   color: white;
-  padding: 12px 24px;
+  padding: 14px 28px;
   font-weight: bold;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   cursor: pointer;
-}
-
-.arrow-right {
-  position: absolute;
-  top: 50%;
-  left: 110%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: #333;
-}
-
-.popup {
-  position: absolute;
-  top: 70px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 220px;
-  background-color: #e6e6e6;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  transition: all 0.3s ease;
-}
-
-.popup p {
-  margin: 0 0 10px;
-  font-weight: 500;
-}
-
-.popup-button {
-  display: inline-block;
-  padding: 6px 12px;
-  background-color: #007b7f;
-  color: white;
-  border-radius: 6px;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.popup-button:hover {
-  background-color: #005c5e;
-}
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-  .popup {
-    top: 0;
-    left: 240%;
-  }
-
-
-  .steps-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .arrow-right {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    display: block;
-    text-align: center;
-    margin: 10px 0;
-  }
-
-  .arrow-right::after {
-    content: "↓";
-    font-size: 24px;
-    color: #333;
-  }
-
-  
-}
-
-
-
-
- */
-
- body {
-  font-family: 'Poppins', sans-serif;
-}
-
-
-
- .roadmap-container {
-  display: flex;
-  justify-content: center;
-  padding: 40px;
-  /* background-color: #f5f5f5; */
-  /* background-color: #6071c4; */
-}
-
-.steps-wrapper {
-  display: flex;
-  gap: 40px;
-  position: relative;
-  flex-wrap: wrap;
-}
-
-.step-block {
-  position: relative;
-  text-align: center;
-}
-
-.step-label {
-  background-color: #6071c4;
-  color: white;
-  padding: 12px 24px;
-  font-weight: bold;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-/* Desktop arrows (→) */
-.arrow-right {
-  position: absolute;
-  top: 50%;
-  left: 110%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: #333;
-}
-
-.arrow-right::after {
-  content: "→";
-}
-
-.popup {
-  position: absolute;
-  top: 70px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 220px;
-  background-color: #e6e6e6;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  transition: all 0.3s ease;
-}
-
-.popup p {
-  margin: 0 0 10px;
-  font-weight: 500;
-}
-
-.popup-button {
-  display: inline-block;
-  padding: 6px 12px;
-  background-color: #6071c4;
-  color: white;
-  border-radius: 6px;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.popup-button:hover {
-  background-color: #3149c0;
-}
-
-@media (max-width: 768px) {
-  .steps-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .arrow-right {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    transform: none;
-    display: block;
-    text-align: center;
-    margin: 10px 0;
-  }
-
-  .arrow-right::after {
-    content: "↓";
-  }
-
-  .popup {
-    top: 0;
-    left: 180%;
-    transform: translateX(-50%);
-    margin-top: 10px;
-  }
-
-  /* pop box changee */
-
-  .popup {
-    width: 140px; /* Increased from 220px */
-    padding: 20px; /* Increased from 15px */
-  }
-
-  /* Adjust popup text sizes */
-  .popup p {
-    font-size: 14px; /* Larger text for mobile readability */
-    margin-bottom: 15px; /* More spacing */
-  }
-
-  .popup-button {
-    font-size: 14px; /* Larger button text */
-    padding: 8px 16px; /* Larger button */
-  }
-
-  /* Optional: Adjust step label size */
-  .step-label {
-    padding: 15px 30px; /* Slightly larger tap target */
-    font-size: 18px;
-  }
-
-}
-
-
-/* Add these styles to your existing CSS */
-
-.step-label {
-  /* ... existing styles ... */
-  transition: all 0.3s ease;
-  position: relative; /* Needed for smooth animation */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-size: 1rem;
+  min-width: 100px;
+  border: none;
 }
 
 .step-label:hover {
-  transform: translateY(-5px); /* Moves button 5px up */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow for "lifted" effect */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #6a7bcc 0%, #4a5bb5 100%);
 }
 
-/* For mobile tap effects (optional) */
-.step-label:active {
+.step-label.active {
+  background: linear-gradient(135deg, #4a5bb5 0%, #2a3b95 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.arrow {
+  color: #6071c4;
+  font-size: 24px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.desktop-arrow {
+  display: inline;
+}
+.mobile-arrow {
+  display: none;
+}
+
+/* Popup Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+}
+
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 101;
+  animation: fadeIn 0.3s ease-out;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -48%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.popup-header {
+  padding: 20px;
+  background: linear-gradient(135deg, #6071c4 0%, #3a4ba5 100%);
+  color: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  position: relative;
+}
+
+.popup-header h3 {
+  margin: 8px 0 0 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.step-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 5px;
+}
+
+.popup-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.popup-footer {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* Checklist Design */
+.checklist-design {
+  padding: 15px 20px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  background: #f8f9ff;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.checklist-item:hover {
+  background: #edf0ff;
+  transform: translateX(2px);
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #6071c4;
+  border-radius: 4px;
+  margin-right: 12px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.checkbox::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #6071c4;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.checklist-item:hover .checkbox::after {
+  opacity: 0.3;
+}
+
+.checklist-content {
+  flex: 1;
+}
+
+.checklist-section-header {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 12px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.section-emoji {
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+.section-text {
+  font-weight: 600;
+  color: #3a4ba5;
+  font-size: 1.1rem;
+}
+
+.numbered-checklist-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.number-circle {
+  width: 24px;
+  height: 24px;
+  background: #6071c4;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.numbered-content {
+  flex: 1;
+}
+
+.checklist-text {
+  margin-bottom: 12px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.spacer {
+  height: 10px;
+}
+
+.resource-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #6071c4 0%, #3a4ba5 100%);
+  color: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(96, 113, 196, 0.3);
+}
+
+.btn-icon {
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+.btn-arrow {
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+
+.resource-btn:hover {
   transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(96, 113, 196, 0.4);
+}
+
+.resource-btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .steps-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .desktop-arrow {
+    display: none;
+  }
+  .mobile-arrow {
+    display: inline;
+    margin: 5px 0;
+  }
+
+  .arrow {
+    padding: 5px 0;
+    transform: rotate(90deg);
+  }
+
+  .step-label {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    min-width: 80px;
+  }
+
+  /* Popup mobile styles */
+  .popup-container {
+    top: 45%;
+    width: 95%;
+    max-height: 85vh;
+  }
+
+  .popup-header h3 {
+    font-size: 1.3rem;
+    margin-top: 5px;
+  }
+
+  .popup-body {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+
+  .checklist-section-header {
+    margin: 15px 0 10px 0;
+  }
+
+  .section-text {
+    font-size: 1rem;
+  }
+
+  .resource-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup-container {
+    top: 40%;
+    max-height: 90vh;
+  }
+
+  .popup-header {
+    padding: 15px;
+  }
+
+  .popup-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .step-badge {
+    font-size: 0.7rem;
+  }
+
+  .close-btn {
+    font-size: 1.5rem;
+    top: 8px;
+    right: 10px;
+  }
+
+  .checklist-item {
+    padding: 8px 10px;
+  }
+
+  .checkbox {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+  }
+
+  .number-circle {
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+    margin-right: 10px;
+  }
 }

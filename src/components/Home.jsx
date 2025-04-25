@@ -5,7 +5,10 @@ import { Button, TextField, InputAdornment } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
+import CarouselComponent from  "./CarouselComponent";
 import { useNavigate } from "react-router-dom";
+import useScrollAnimation from "./useScrollAnimation";
+
 
 export default function Home() {
   // State to manage dynamic subtext
@@ -39,6 +42,11 @@ export default function Home() {
 
     return () => window.removeEventListener("resize", updateView);
   }, []);
+
+
+  const [carouselRef, carouselVisible] = useScrollAnimation();
+const [footerRef, footerVisible] = useScrollAnimation();
+
 
   return (
     <>
@@ -78,10 +86,22 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Footer Section */}
-      <div id="footer-section">
-        <Footer />
-      </div>
+      <div
+  id="certification-section"
+  ref={carouselRef}
+  className={`animate-on-scroll ${carouselVisible ? "visible" : ""}`}
+>
+  <CarouselComponent />
+</div>
+
+<div
+  id="footer-section"
+  ref={footerRef}
+  className={`animate-on-scroll ${footerVisible ? "visible" : ""}`}
+>
+  <Footer />
+</div>
+
     </>
   );
 }
