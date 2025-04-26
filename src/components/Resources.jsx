@@ -14,9 +14,13 @@ const Resources = ({ heading = "", description = "" }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedResources, setSelectedResources] = useState([]);
   const [modalTitle, setModalTitle] = useState("");
-
-  // State for saved resources
+  const [showLoginPrompt, setShowLoginPrompt] = useState(false);
   const [savedResources, setSavedResources] = useState([]);
+  const [resourceToSave, setResourceToSave] = useState(null);
+
+
+  
+
 
   // Check if a resource is saved
   const isSaved = (resource) => {
