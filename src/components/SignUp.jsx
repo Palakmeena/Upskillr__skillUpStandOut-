@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./SignUp.css";
-import signupImage from "../images/signup.png"; // You can replace this image
+import signupImage from "../images/signup.png";
 import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
-const SignUp = ({ setIsLogin }) => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState(""); // Added name state
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth(); // Get login function from AuthContext
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +32,7 @@ const SignUp = ({ setIsLogin }) => {
         body: JSON.stringify({ 
           email: email.trim(), 
           password: password.trim(),
-          name: name?.trim() // Optional name field
+          name: name.trim() || email.split('@')[0]
         }),
         credentials: 'include'
       });
@@ -40,8 +43,29 @@ const SignUp = ({ setIsLogin }) => {
         throw new Error(data.message || "Registration failed");
       }
   
-      // Store user data and redirect
-      localStorage.setItem("user", JSON.stringify(data));
+      // Add this block to handle pending resource after signup
+      const pendingResource = localStorage.getItem('pendingResource');
+      if (pendingResource) {
+        try {
+          const resource = JSON.parse(pendingResource);
+          await fetch("http://localhost:8080/api/resources/save", {
+            method: "POST",
+            headers: { 
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${data.token}` // Add if using JWT
+            },
+            body: JSON.stringify(resource),
+            credentials: 'include'
+          });
+          localStorage.removeItem('pendingResource');
+          navigate("/resources");
+          return;
+        } catch (saveError) {
+          console.error("Failed to save pending resource:", saveError);
+        }
+      }
+  
+      login(data.user);
       navigate("/dashboard");
       
     } catch (error) {
@@ -51,7 +75,6 @@ const SignUp = ({ setIsLogin }) => {
       setIsLoading(false);
     }
   };
-
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
@@ -59,11 +82,10 @@ const SignUp = ({ setIsLogin }) => {
   }, []);
 
 
-
+  
 
   return (
     <div className="signup-container">
-
       {isLoading && (
         <div className="loading-overlay">
           <div className="spinner"></div>
@@ -85,6 +107,12 @@ const SignUp = ({ setIsLogin }) => {
               required
             />
             <input
+              type="text"
+              placeholder="Name (optional)"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
               type="password"
               placeholder="Password"
               value={password}
@@ -98,11 +126,6 @@ const SignUp = ({ setIsLogin }) => {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-            {/* <div className="signup-options">
-              <label>
-                <input type="checkbox" /> Agree to terms and conditions
-              </label>
-            </div> */}
             <button type="submit" disabled={isLoading}>
               {isLoading ? "Signing Up..." : "Sign Up"}
             </button>

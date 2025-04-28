@@ -66,6 +66,45 @@ const cardsData = {
             viewLink: "/resources/OOPS.pdf",
             downloadLink: "/resources/OOPS.pdf",
           },
+
+          {
+            title: "Strings in Java",
+            viewLink: "/resources/stringinjava.pdf",
+            downloadLink: "/resources/stringinjava.pdf",
+          },
+
+          {
+            title: "Ways to load .class ",
+            viewLink: "/resources/waystoloadclass.pdf",
+            downloadLink: "/resources/waystoloadclass.pdf",
+          },
+
+
+          {
+            title: "Oops in Java ",
+            viewLink: "/resources/oopsjava.pdf",
+            downloadLink: "/resources/oopsjava.pdf",
+          },
+
+          {
+            title: "JDBC VS Hibernate ",
+            viewLink: "/resources/jdbcvshibernate.pdf",
+            downloadLink: "/resources/jdbcvshibernate.pdf",
+          },
+
+
+          {
+            title: "Java Method ",
+            viewLink: "/resources/javamethod.pdf",
+            downloadLink: "/resources/javamethod.pdf",
+          },
+
+
+          {
+            title: "Collections in Java ",
+            viewLink: "/resources/collections.pdf",
+            downloadLink: "/resources/collections.pdf",
+          },
         ],
       },
       {
@@ -206,6 +245,92 @@ const cardsData = {
             title: "Dependency injection",
             viewLink: "/resources/dependency injection -1.pdf",
             downloadLink: "/resources/dependency injection -1.pdf",
+          },
+
+          {
+            title: "API Structure",
+            viewLink: "/resources/apistructure.pdf",
+            downloadLink: "/resources/apistructure.pdf",
+          },
+
+          {
+            title: "Design Pattern",
+            viewLink: "/resources/designpattern.pdf",
+            downloadLink: "/resources/designpattern.pdf",
+          },
+
+
+          {
+            title: "JDBC VS Hibernate",
+            viewLink: "/resources/jdbcvshibernate.pdf",
+            downloadLink: "/resources/jdbcvshibernate.pdf",
+          },
+
+
+          {
+            title: "Redis Cache in Spring",
+            viewLink: "/resources/rediscacacheinspring.pdf",
+            downloadLink: "/resources/rediscacacheinspring.pdf",
+          },
+
+
+          {
+            title: "REST API",
+            viewLink: "/resources/restapi.pdf",
+            downloadLink: "/resources/restapi.pdf",
+          },
+
+
+          {
+            title: "Spring 100 days",
+            viewLink: "/resources/Spring100days.pdf",
+            downloadLink: "/resources/Spring100days.pdf",
+          },
+
+          {
+            title: "spring AOP guide",
+            viewLink: "/resources/springaopguide.pdf",
+            downloadLink: "/resources/springaopguide.pdf",
+          },
+
+
+          {
+            title: "springboot annotations",
+            viewLink: "/resources/springbootannotations.pdf",
+            downloadLink: "/resources/springbootannotations.pdf",
+          },
+
+
+          {
+            title: "springboot handwritten",
+            viewLink: "/resources/springboothandwritten.pdf",
+            downloadLink: "/resources/springboothandwritten.pdf",
+          },
+
+
+          {
+            title: "springboot interview",
+            viewLink: "/resources/springbootinterview.pdf",
+            downloadLink: "/resources/springbootinterview.pdf",
+          },
+
+
+          {
+            title: "springboot overview",
+            viewLink: "/resources/springbootoverview.pdf",
+            downloadLink: "resources/springbootoverview.pdf",
+          },
+
+          {
+            title: "spring core",
+            viewLink: "/resources/springcore.pdf",
+            downloadLink: "/resources/springcore.pdf",
+          },
+
+          {
+            title: "spring security",
+            viewLink: "/resources/springsecurity.pdf",
+            downloadLink: "/resources/springsecurity.pdf",
           },
 
 

@@ -4,7 +4,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars, faTimes, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
-
+import { useAuth } from "../context/AuthContext"; // Add this import
 
 import logo from "../images/logo.jpg";
 import "../components/Header.css";
@@ -12,17 +12,22 @@ import "../components/Header.css";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
+  const navigate = useNavigate();
+  const { user, isAuthenticated, logout } = useAuth(); // Get auth state and logout function
 
-  const navigate = useNavigate(); // Hook for navigation
+  const handleNavigation = (path) => {
+    navigate(path);
+    setExploreOpen(false);
+    setMenuOpen(false);
+  };
 
-const handleNavigation = (path) => {
-  navigate(path); // Navigate to the selected page
-  setExploreOpen(false); // Close dropdown
-  setMenuOpen(false); // Close menu on mobile
-};
-
-
-
+  const handleProfileClick = () => {
+    if (isAuthenticated) {
+      navigate("/dashboard"); // Or wherever you want to send logged-in users
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <nav className="header">
@@ -41,8 +46,7 @@ const handleNavigation = (path) => {
             onMouseEnter={() => setExploreOpen(true)} 
             onMouseLeave={() => setExploreOpen(false)}>
           <span>
-          Explore <FontAwesomeIcon icon={exploreOpen ? faChevronDown : faChevronUp} className="dropdown-icon" />
-
+            Explore <FontAwesomeIcon icon={exploreOpen ? faChevronDown : faChevronUp} className="dropdown-icon" />
           </span>
           {exploreOpen && (
             <ul className="dropdown-menu">
@@ -53,18 +57,31 @@ const handleNavigation = (path) => {
             </ul>
           )}
         </li>
-        {/* <li><ScrollLink to="roadmaps-section" smooth={true} duration={500} offset={-50}>Roadmaps</ScrollLink></li> */}
         <li><Link to="/roadmaps">Roadmaps</Link></li>
-
         <li><Link to="/resources">Resources</Link></li>
-        <li><Link to="/profile">Profile</Link></li>
         
+        {/* Updated Profile/Dashboard link */}
+        <li>
+          {isAuthenticated ? (
+            <Link to="/dashboard">Dashboard</Link>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
+        </li>
+        
+        {/* Add logout button when authenticated */}
+        {isAuthenticated && (
+          <li>
+            <button onClick={logout} className="logout-button">
+              Logout
+            </button>
+          </li>
+        )}
       </ul>
 
       <div className="search-container">
-        
-      <input type="text" placeholder="Search..." />
-      <FontAwesomeIcon icon={faSearch} className="search-icon" />
+        <input type="text" placeholder="Search..." />
+        <FontAwesomeIcon icon={faSearch} className="search-icon" />
       </div>
     </nav>
   );

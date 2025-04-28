@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faSearch, 
@@ -8,56 +8,66 @@ import {
   faHome,
   faSadTear
 } from '@fortawesome/free-solid-svg-icons';
+import { useAuth } from '../context/AuthContext';
+import { getSavedResources, deleteSavedResource } from "../services/api";
 import './Dashboard.css';
 
 const Dashboard = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [resources, setResources] = useState([
-    { 
-      id: 1, 
-      title: 'React Hooks Guide', 
-      category: 'React', 
-      url: 'https://reactjs.org/docs/hooks-intro.html',
-      date: '2023-05-15'
-    },
-    { 
-      id: 2, 
-      title: 'CSS Grid Tutorial', 
-      category: 'CSS', 
-      url: 'https://css-tricks.com/snippets/css/complete-guide-grid/',
-      date: '2023-06-20'
-    },
-    { 
-      id: 3, 
-      title: 'JavaScript Algorithms', 
-      category: 'JavaScript', 
-      url: 'https://github.com/trekhleb/javascript-algorithms',
-      date: '2023-07-10'
+  const [resources, setResources] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { user } = useAuth();
+
+  useEffect(() => {
+    const fetchSavedResources = async () => {
+      try {
+        const response = await getSavedResources();
+        setResources(response.data.savedResources.map(res => ({
+          id: res.id,
+          title: res.resource.title,
+          category: res.resource.category,
+          url: res.resource.viewLink,
+          date: res.savedDate
+        })));
+      } catch (error) {
+        console.error('Error fetching saved resources:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchSavedResources();
+  }, []);
+
+  const handleRemove = async (id) => {
+    try {
+      await deleteSavedResource(id);
+      setResources(resources.filter(resource => resource.id !== id));
+    } catch (error) {
+      console.error('Error removing resource:', error);
     }
-  ]);
-
-  const userName = "Alex Johnson";
-
-  const filteredResources = resources.filter(resource => 
-    resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    resource.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const handleRemove = (id) => {
-    setResources(resources.filter(resource => resource.id !== id));
   };
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
 
+  const filteredResources = resources.filter(resource => 
+    resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    resource.category.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  if (loading) {
+    return <div className="loading-spinner">Loading...</div>;
+  }
+
   return (
     <div className={`dashboard ${darkMode ? 'dark-mode' : ''}`}>
       <div className="dashboard-header">
         <div className="header-content">
           <h1>
-            <span role="img" aria-label="waving hand"></span> Welcome back, {userName}! 
+            Welcome back, {user?.name || 'User'}! 
             <span className="resource-count">{filteredResources.length} saved resources</span>
           </h1>
           <div className="header-actions">

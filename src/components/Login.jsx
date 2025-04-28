@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Login.css";
 import loginImage from "../images/login.jpg";
 import { useNavigate, Link } from 'react-router-dom';
-
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,6 +10,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth(); // Get login function from AuthContext
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,50 +18,38 @@ const Login = () => {
     setIsLoading(true);
   
     try {
-      const response = await fetch("http://localhost:8080/api/users/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          email: email.trim(), 
-          password: password.trim() 
-        }),
-        credentials: 'include' // Important for session cookies
+      const response = await login({
+        email: email.trim(),
+        password: password.trim()
       });
   
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.message || "Login failed");
+      // Handle pending resource after successful login
+      const pendingResource = localStorage.getItem('pendingResource');
+      if (pendingResource) {
+        try {
+          const resource = JSON.parse(pendingResource);
+          await saveResource(resource);
+          localStorage.removeItem('pendingResource');
+          navigate("/resources");
+          return;
+        } catch (saveError) {
+          console.error("Failed to save pending resource:", saveError);
+        }
       }
   
-      // Store user data and redirect
-      localStorage.setItem("user", JSON.stringify(data.user));
       navigate("/dashboard");
-      
     } catch (error) {
-      console.error("Login error:", error);
       setError(error.message || "Login failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
   };
 
-
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setAnimate(true), 100);
   }, []);
-
-
-  {
-    isLoading && (
-      <div className="loading-overlay">
-        <div className="spinner"></div>
-      </div>
-    )
-  }
-
 
   return (
     <div className="login-container">
@@ -86,12 +75,6 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            {/* <div className="login-options">
-              <label>
-                <input type="checkbox" /> Remember me
-              </label>
-              <a href="#">Forgot password?</a>
-            </div> */}
             <button type="submit" disabled={isLoading}>
               {isLoading ? "Signing In..." : "Sign In"}
             </button>

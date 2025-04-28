@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import "./app.css";
-
+// Update this line in Resources.jsx
+// src/App.jsx
+import { AuthProvider } from "./context/AuthContext";  // Updated import path
 import SignUp from './components/SignUp';
 import Explore from "./components/Explore";
 import Header from "./components/Header";
@@ -31,6 +33,7 @@ function ScrollToTop() {
 export default function App() {
 
   return (
+    <AuthProvider>
     <Router>
       <ScrollToTop />
       <Header />
@@ -51,6 +54,7 @@ export default function App() {
 
       </Routes>
     </Router>
+     </AuthProvider>
 
 
   );
