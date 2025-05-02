@@ -471,3 +471,219 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+
+
+/* Add these styles to your existing Resources.css */
+
+.login-prompt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.login-prompt-container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-prompt-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #777;
+  transition: color 0.2s;
+}
+
+.login-prompt-close:hover {
+  color: #333;
+}
+
+.login-prompt-icon {
+  margin-bottom: 20px;
+}
+
+.login-prompt-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.login-prompt-message {
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.login-prompt-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.login-prompt-cancel,
+.login-prompt-confirm {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.login-prompt-cancel {
+  background-color: #f0f0f0;
+  color: #555;
+  border: none;
+}
+
+.login-prompt-cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.login-prompt-confirm {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.login-prompt-confirm:hover {
+  background-color: #007bff;
+  transform: translateY(-1px);
+}
+
+
+
+.login-prompt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.login-prompt-container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-prompt-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #777;
+  padding: 5px;
+}
+
+.login-prompt-icon {
+  margin-bottom: 20px;
+}
+
+.login-prompt-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.login-prompt-message {
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.login-prompt-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.login-prompt-cancel,
+.login-prompt-confirm {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.login-prompt-cancel {
+  background-color: #f0f0f0;
+  color: #555;
+  border: none;
+}
+
+.login-prompt-confirm {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+}
+
+
+.login-prompt-close {
+  position: absolute;
+  margin-left: 400px;
+  top: 15px;
+  right: 40px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #777;
+  padding: 5px;
+  margin: 0;
+  /* Removed all hover effects */
+}
+
+.cross{
+  margin-left: 400px;
+
+}
+
+/* Remove any existing hover effects for this class */
+.login-prompt-close:hover {
+  color: #777; /* Same as normal state */
+  background: none; /* No background change */
+  transform: none; /* No movement */
+}

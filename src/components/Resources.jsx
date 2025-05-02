@@ -3,7 +3,7 @@ import ResourceCard from "./ResourceCard";
 import "./Resources.css";
 import cardsData from "../data/resourcesData";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faDownload, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as regularBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from "../context/AuthContext";
@@ -18,7 +18,6 @@ const Resources = ({ heading = "", description = "" }) => {
   const [resourceToSave, setResourceToSave] = useState(null);
   const { isAuthenticated, user } = useAuth();
 
-  // Load saved resources when authenticated
   useEffect(() => {
     if (isAuthenticated) {
       const loadSavedResources = async () => {
@@ -39,29 +38,25 @@ const Resources = ({ heading = "", description = "" }) => {
 
   const handleSave = async (resource) => {
     if (!isAuthenticated) {
-      // Store resource to save after login
-      localStorage.setItem('pendingResource', JSON.stringify({
-        title: resource.title,
-        viewLink: resource.viewLink,
-        downloadLink: resource.downloadLink,
-        category: heading
-      }));
-      
-      // Show clear visual feedback
-      alert("Please login to save resources. Redirecting to login...");
-      window.location.href = '/login?from=resources';
+      setResourceToSave(resource);
+      setShowLoginPrompt(true);
       return;
     }
   
     try {
-      // Existing save logic...
+      if (isSaved(resource)) {
+        await deleteSavedResource(resource.viewLink);
+        setSavedResources(savedResources.filter(item => item.resource.viewLink !== resource.viewLink));
+      } else {
+        await saveResource(resource);
+        setSavedResources([...savedResources, { resource }]);
+      }
     } catch (error) {
       console.error("Save error:", error);
       alert(error.message || "Failed to save resource");
     }
   };
 
-  // Rest of your existing code remains exactly the same
   const openModal = (title, resources) => {
     setModalTitle(title);
     setSelectedResources(resources);
@@ -72,7 +67,6 @@ const Resources = ({ heading = "", description = "" }) => {
 
   return (
     <div className="resources-container">
-      {/* All your existing JSX remains exactly the same */}
       <h2>{heading}</h2>
       {description && <p className="resources-subtext">{description}</p>}
       <div className="card-container">
@@ -127,24 +121,46 @@ const Resources = ({ heading = "", description = "" }) => {
         </div>
       )}
 
-      {showLoginPrompt && (
-        <div className="login-prompt-modal">
-          <div className="login-prompt-content">
-            <h3>Login Required</h3>
-            <p>You need to login to save resources to your dashboard.</p>
-            <div className="prompt-actions">
-              <button onClick={() => setShowLoginPrompt(false)}>Cancel</button>
-              <button onClick={() => {
-                localStorage.setItem('pendingResource', JSON.stringify({
-                  ...resourceToSave,
-                  category: heading
-                }));
-                window.location.href = '/login?redirect=resources';
-              }}>Login</button>
-            </div>
-          </div>
+{showLoginPrompt && (
+  <div className="login-prompt-overlay">
+    <div className="login-prompt-container">
+      <button 
+        className="login-prompt-close" 
+        onClick={() => setShowLoginPrompt(false)}
+      >
+        <div className="cross">
+        <FontAwesomeIcon icon={faTimes} />
         </div>
-      )}
+
+        
+      </button>
+      <h3 className="login-prompt-title">Save Resources</h3>
+      <p className="login-prompt-message">
+        Login to save this resource to your dashboard and access it anytime.
+      </p>
+      <div className="login-prompt-actions">
+        <button 
+          className="login-prompt-cancel"
+          onClick={() => setShowLoginPrompt(false)}
+        >
+          Maybe Later
+        </button>
+        <button 
+          className="login-prompt-confirm"
+          onClick={() => {
+            localStorage.setItem('pendingResource', JSON.stringify({
+              ...resourceToSave,
+              category: heading
+            }));
+            window.location.href = '/login?redirect=resources';
+          }}
+        >
+          Login Now
+        </button>
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 };
